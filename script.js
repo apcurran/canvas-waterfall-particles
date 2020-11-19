@@ -8,7 +8,7 @@ canvas.width = document.documentElement.clientWidth;
 canvas.height = document.documentElement.clientHeight;
 
 let particlesArr = [];
-const numOfParticles = 500;
+const numOfParticles = 700;
 
 // Measure title el
 const titleElement = document.getElementById("title");
