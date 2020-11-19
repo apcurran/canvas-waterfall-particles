@@ -53,11 +53,8 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = "purple";
-        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.closePath();
-        ctx.fill();
     }
 }
 
@@ -78,10 +75,17 @@ function animate() {
     ctx.fillStyle = "rgba(255, 255, 255, 0.01)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    ctx.beginPath();
+    // Initial rain particles color
+    ctx.fillStyle = "purple";
+
     for (let i = 0; i < particlesArr.length; i++) {
         particlesArr[i].update();
         particlesArr[i].draw();
     }
+
+    // Call fill once for traced particles, after looping over all.
+    ctx.fill();
 
     requestAnimationFrame(animate);
 }
